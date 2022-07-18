@@ -1,3 +1,4 @@
+import 'package:commerceapp/controller/singup_controller.dart';
 import 'package:commerceapp/core/constant/color.dart';
 import 'package:commerceapp/core/constant/imageasset.dart';
 import 'package:commerceapp/view/screen/auth/forgotpassowrd.dart';
@@ -15,6 +16,7 @@ class SignUP extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SingUpControllerImp controller = Get.put(SingUpControllerImp());
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.white,
@@ -51,22 +53,37 @@ class SignUP extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const CustomTextFromLog(
-                hinttext: 'Enter your email',
-                label: 'Email',
-                suffixIcon: Icons.email_outlined,
+              Expanded(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    CustomTextFromLog(
+                      hinttext: 'Enter your username',
+                      label: 'username',
+                      suffixIcon: Icons.person_add_alt_1_outlined,
+                      myContrller: controller.username,
+                    ),
+                    CustomTextFromLog(
+                      hinttext: 'Enter your email',
+                      label: 'Email',
+                      suffixIcon: Icons.email_outlined,
+                      myContrller: controller.email,
+                    ),
+                    CustomTextFromLog(
+                      hinttext: 'Enter your password',
+                      label: 'Password',
+                      suffixIcon: Icons.lock_clock_outlined,
+                      myContrller: controller.password,
+                    ),
+                    CustomTextFromLog(
+                      hinttext: 'Enter your phone',
+                      label: 'phone',
+                      suffixIcon: Icons.phone_outlined,
+                      myContrller: controller.phone,
+                    ),
+                  ],
+                ),
               ),
-              const CustomTextFromLog(
-                hinttext: 'Enter your password',
-                label: 'Password',
-                suffixIcon: Icons.lock_clock_outlined,
-              ),
-              const CustomTextFromLog(
-                hinttext: 'Enter your password',
-                label: 'Password',
-                suffixIcon: Icons.lock_clock_outlined,
-              ),
-              const ForgotPasswordLog(),
               const CustomButtonLang(
                 text: 'Sign up',
               ),

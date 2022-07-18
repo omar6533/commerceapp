@@ -4,12 +4,14 @@ class CustomTextFromLog extends StatelessWidget {
   final String hinttext;
   final String label;
   final IconData suffixIcon;
+  final TextEditingController myContrller;
 
   const CustomTextFromLog({
     Key? key,
     required this.hinttext,
     required this.label,
     required this.suffixIcon,
+    required this.myContrller,
   }) : super(key: key);
 
   @override

@@ -1,7 +1,5 @@
-import 'package:commerceapp/controller/login_controller.dart';
+import 'package:commerceapp/controller/ForgetPass_controller.dart';
 import 'package:commerceapp/core/constant/color.dart';
-import 'package:commerceapp/core/constant/imageasset.dart';
-import 'package:commerceapp/view/widget/auth/customsignupsent.dart';
 import 'package:commerceapp/view/screen/auth/customtextfromlog.dart';
 import 'package:commerceapp/view/widget/auth/customTitle.dart';
 import 'package:commerceapp/view/widget/auth/custombodylog.dart';
@@ -9,11 +7,11 @@ import 'package:commerceapp/view/widget/language/custombuttonlang.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class Login extends GetView<LoginControllerImp> {
-  const Login({Key? key}) : super(key: key);
+class ForgetPass extends GetView<ForgetPassControllerImp> {
+  const ForgetPass({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    LoginControllerImp controller = Get.put(LoginControllerImp());
+    ForgetPassControllerImp controller = Get.put(ForgetPassControllerImp());
     return Scaffold(
       appBar: AppBar(
           backgroundColor: Colors.white,
@@ -21,7 +19,7 @@ class Login extends GetView<LoginControllerImp> {
           centerTitle: true,
           title: Text(
             textAlign: TextAlign.left,
-            'Sign in',
+            'Forget  Password',
             style: Theme.of(context).textTheme.headline1?.copyWith(
                   color: AppColor.grey,
                 ),
@@ -34,12 +32,6 @@ class Login extends GetView<LoginControllerImp> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                  width: 200,
-                  height: 200,
-                  child: Image.asset(
-                    ImageAsset.loginLogo,
-                  )),
               const CustomTitleLog(
                 text: 'Welcome Back',
               ),
@@ -58,38 +50,15 @@ class Login extends GetView<LoginControllerImp> {
                     label: 'Email',
                     suffixIcon: Icons.email_outlined,
                     myContrller: controller.email,
-                  ),
-                  CustomTextFromLog(
-                    hinttext: 'Enter your password',
-                    label: 'Password',
-                    suffixIcon: Icons.lock_clock_outlined,
-                    myContrller: controller.password,
-                  ),
+                  )
                 ],
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  InkWell(
-                    onTap: () {
-                      controller.goToForgetPass();
-                    },
-                    child: const Text(
-                      'forget password?',
-                      style: TextStyle(fontSize: 15),
-                    ),
-                  )
-                ],
+                children: [],
               ),
               const CustomButtonLang(
-                text: 'Sign in',
-              ),
-              CustomTextSingUpOrLogin(
-                text: "don't have an account",
-                text2: 'Sign up',
-                onTap: () {
-                  controller.goToSignUP();
-                },
+                text: 'Check',
               ),
             ],
           ),

@@ -1,17 +1,17 @@
-import 'package:commerceapp/view/screen/auth/forgetpassword.dart';
 import 'package:commerceapp/view/screen/auth/singup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-abstract class LoginController extends GetxController {
+abstract class SingUpController extends GetxController {
   login();
   goToSignUP();
-  goToForgetPass();
 }
 
-class LoginControllerImp extends LoginController {
+class SingUpControllerImp extends SingUpController {
   late TextEditingController email;
   late TextEditingController password;
+  late TextEditingController username;
+  late TextEditingController phone;
   @override
   login() {}
 
@@ -24,6 +24,8 @@ class LoginControllerImp extends LoginController {
   void onInit() {
     email = TextEditingController();
     password = TextEditingController();
+    username = TextEditingController();
+    phone = TextEditingController();
     super.onInit();
   }
 
@@ -31,11 +33,8 @@ class LoginControllerImp extends LoginController {
   void dispose() {
     email.dispose();
     password.dispose();
+    username.dispose();
+    phone.dispose();
     super.dispose();
-  }
-
-  @override
-  goToForgetPass() {
-    Get.to(ForgetPass());
   }
 }
